@@ -30,8 +30,6 @@ This GitHub Action automatically fetches all your public repositories (excluding
    ```
    Then commit and push the changes.
 
-   *Make sure to update the workflow file with your GitHub username wherever required.*
-
 2. **Generate a GitHub Personal Access Token (PAT)**  
    You need a **Personal Access Token (PAT)** with **`repo`** permissions.  
    Refer to [GitHub Docs](https://github.com/settings/tokens) on how to generate one.
@@ -64,22 +62,40 @@ This GitHub Action automatically fetches all your public repositories (excluding
 7. **Ensure Placeholders Are Present**  
    To allow automatic updates, your `README.md` must include the following placeholders:
    ```
-    <!-- LANGUAGES BREAKDOWN (STATIC EXAMPLE) START -->
+    <!-- LANGUAGES BREAKDOWN START -->
 
-    <!-- LANGUAGES BREAKDOWN (STATIC EXAMPLE) END -->
+    <!-- LANGUAGES BREAKDOWN END -->
    ```
    The workflow will update the stats between these markers.  
    *Remove `(STATIC EXAMPLE)` when adding it in your README, as it's just a placeholder. It's included here only to prevent automatic updates in this README.*
 
-### **Configure Language Detection**
-By default, the workflow excludes some file types from counting:
-```bash
-cloc . --exclude-ext=json,html,css,svg,md,py,ps1,scss --json > ../output/cloc-output.json
-```
-You can modify this list in the workflow file to include or exclude specific languages based on your needs.
+### Configure languages
 
-After execution, you can check the **`cloc-output.json`** file inside the `output` folder to see the full language breakdown.  
-For a complete list of supported languages, refer to [`cloc` documentation](https://github.com/AlDanial/cloc).
+The workflow uses cloc **language names** (not file extensions).
+
+- **HIGHLIGHT_LANGS** → languages shown individually in the README; everything else is grouped under **Others**  
+- **IGNORE_LANGS** → languages dropped completely (not shown, not counted)
+
+Edit these in `.github/workflows/analyze-code.yml` under the job `env:` block:
+
+```yaml
+env:
+  # Use cloc LANGUAGE NAMES (not extensions). Example: "Vuejs Component" for .vue, "C#" for C#
+  # HIGHLIGHT_LANGS: show these languages individually; everything else goes to "Others"
+  HIGHLIGHT_LANGS: "JavaScript,TypeScript,JSX,Vuejs Component,PHP,C#"
+
+  # IGNORE_LANGS: drop these languages entirely (not shown and not counted)
+  IGNORE_LANGS: "JSON,HTML,CSS,SCSS,Sass,Markdown,SVG,XML,YAML,TOML,CSV,Text,Properties"
+```
+
+### **Configure Language Detection**
+The workflow asks cloc to exclude languages using cloc’s own filter, so totals match cloc’s `SUM`:
+
+```bash
+cloc . --json --report-file=../output/cloc-output.json --exclude-lang="${IGNORE_LANGS}"
+```
+
+For a complete list of language names supported by cloc, see the [cloc documentation](https://github.com/AlDanial/cloc).
 
 
 ## Upcoming Features
