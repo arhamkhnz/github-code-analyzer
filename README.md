@@ -63,7 +63,17 @@ This GitHub Action automatically fetches all your public repositories (excluding
    To allow automatic updates, your `README.md` must include the following placeholders:
    ```
     <!-- LANGUAGES BREAKDOWN START -->
+```
+[ LANGUAGES BREAKDOWN ]
 
+JavaScript   --> 142,485 lines
+TypeScript   --> 112,323 lines
+JSX          --> 20,312 lines
+PHP          --> 5,248 lines
+Others       --> 8,921 lines
+
+[ TOTAL LINES OF CODE: 289,289 ]
+```
     <!-- LANGUAGES BREAKDOWN END -->
    ```
    The workflow will update the stats between these markers.  
