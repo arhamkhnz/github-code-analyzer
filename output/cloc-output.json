@@ -1,22 +1,22 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.83567404747009,
-  "n_files"            : 4325,
-  "n_lines"            : 359900,
-  "files_per_second"   : 1525.21055932315,
-  "lines_per_second"   : 126918.677526104,
+  "elapsed_seconds"    : 2.8346700668335,
+  "n_files"            : 4329,
+  "n_lines"            : 360174,
+  "files_per_second"   : 1527.16185585427,
+  "lines_per_second"   : 127060.289736765,
   "report_file"        : "../output/cloc-output.json"},
 "JavaScript" :{
-  "nFiles": 1056,
-  "blank": 25819,
-  "comment": 15158,
-  "code": 137008},
+  "nFiles": 1048,
+  "blank": 25699,
+  "comment": 15178,
+  "code": 136343},
 "TypeScript" :{
-  "nFiles": 2427,
-  "blank": 12001,
-  "comment": 2822,
-  "code": 117631},
+  "nFiles": 2438,
+  "blank": 12078,
+  "comment": 2832,
+  "code": 118500},
 "JSX" :{
   "nFiles": 172,
   "blank": 1935,
@@ -42,6 +42,11 @@
   "blank": 83,
   "comment": 36,
   "code": 275},
+"Bourne Shell" :{
+  "nFiles": 2,
+  "blank": 34,
+  "comment": 49,
+  "code": 188},
 "Gradle" :{
   "nFiles": 10,
   "blank": 27,
@@ -52,11 +57,6 @@
   "blank": 48,
   "comment": 4,
   "code": 138},
-"Bourne Shell" :{
-  "nFiles": 1,
-  "blank": 22,
-  "comment": 37,
-  "code": 129},
 "Bourne Again Shell" :{
   "nFiles": 1,
   "blank": 19,
@@ -93,7 +93,7 @@
   "comment": 18,
   "code": 0},
 "SUM": {
-  "blank": 42520,
-  "comment": 21923,
-  "code": 295457,
-  "nFiles": 4325} }
+  "blank": 42489,
+  "comment": 21965,
+  "code": 295720,
+  "nFiles": 4329} }
