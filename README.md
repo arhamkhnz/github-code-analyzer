@@ -16,6 +16,16 @@ Others       --> 9,942 lines
 ```
 <!-- LANGUAGES BREAKDOWN END -->
 *Stats update automatically via GitHub Actions.*
+
+## Public Repository Stats
+
+Run the **Update Public Repository Code Stats** workflow with a GitHub username to count that user's public, non-fork repositories. Its weekly run uses the repository owner by default; set the `PUBLIC_STATS_USERNAME` repository variable to use another username. This workflow does not need `GH_PAT` and generates `output/public-summary.json` after its first run.
+
+The statistics above still come from the original `GH_PAT` workflow; that workflow can include any repositories its token can access.
+
+<!-- PUBLIC CODE STATS START -->
+Run the public workflow to generate these statistics.
+<!-- PUBLIC CODE STATS END -->
  
 ## How It Works  
 This GitHub Action automatically fetches all your public repositories (excluding forks), clones the **default branch**, and analyzes lines of code using [`cloc`](https://github.com/AlDanial/cloc). It then updates the repository’s `README.md` with the latest code statistics. The workflow runs **by default every Sunday at midnight UTC (customizable)**, keeping your stats up to date.
