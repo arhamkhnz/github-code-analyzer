@@ -24,7 +24,15 @@ Run the **Update Public Repository Code Stats** workflow with a GitHub username 
 The statistics above still come from the original `GH_PAT` workflow; that workflow can include any repositories its token can access.
 
 <!-- PUBLIC CODE STATS START -->
-Run the public workflow to generate these statistics.
+Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz): **28**
+
+| Language | Code lines |
+| --- | ---: |
+| TypeScript | 102,330 |
+| Vuejs Component | 7,937 |
+| JavaScript | 1,762 |
+| Others | 6,220 |
+| **Total** | **118,249** |
 <!-- PUBLIC CODE STATS END -->
  
 ## How It Works  
