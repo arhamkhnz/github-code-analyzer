@@ -42,12 +42,14 @@ The PAT workflow does not print source repo names in normal run logs or save the
 ```
 [ LANGUAGES BREAKDOWN ]
 
-TypeScript      --> 105,448 lines
-JavaScript      --> 22,707 lines
+JavaScript      --> 401,478 lines
+TypeScript      --> 386,614 lines
+JSX             --> 20,576 lines
 Vuejs Component --> 7,937 lines
-Others          --> 6,300 lines
+PHP             --> 5,248 lines
+Others          --> 10,046 lines
 
-[ TOTAL LINES OF CODE: 142,392 ]
+[ TOTAL LINES OF CODE: 831,899 ]
 ```
 <!-- LANGUAGES BREAKDOWN END -->
 
