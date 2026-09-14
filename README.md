@@ -9,6 +9,8 @@ There are two workflows:
 
 You can use both in the same repo. They write to separate sections of the README.
 
+Both workflows commit and push the updated README using the repo's built-in `GITHUB_TOKEN`. They already request `contents: write`. If a push is denied, go to **Settings → Actions → General → Workflow permissions** in the repo where you want the results and select **Read and write permissions** if available. Organization settings or branch rules can also block the push.
+
 ## Public repos by username
 
 <!-- PUBLIC CODE STATS START -->
@@ -56,7 +58,7 @@ Others          --> 6,300 lines
 3. In the repo where you want the results, go to **Settings → Secrets and variables → Actions → New repository secret**. Save the token as `GH_PAT`.
 4. Go to **Actions → Analyze Repositories with PAT → Run workflow**.
 
-The copied workflow also runs every Sunday at 00:00 UTC. The version running in this repo also runs on pushes to `main`. The PAT reads source repos; the workflow's built-in `GITHUB_TOKEN` writes the README and `output/cloc-output.json`. Your repo must allow Actions to push those changes.
+The copied workflow also runs every Sunday at 00:00 UTC. The version running in this repo also runs on pushes to `main`. The PAT reads source repos; the workflow's built-in `GITHUB_TOKEN` writes the README and `output/cloc-output.json`.
 
 ## Languages
 
