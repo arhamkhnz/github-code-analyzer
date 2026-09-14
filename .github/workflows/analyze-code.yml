@@ -81,7 +81,7 @@ jobs:
           set -euo pipefail
           mkdir -p output
           if [[ -s "$RUNNER_TEMP/pat-source-repos.txt" ]]; then
-            if ! cloc "$RUNNER_TEMP/pat-code-repos" --json --skip-uniqueness \
+            if ! cloc "$RUNNER_TEMP/pat-code-repos" --json \
               --report-file=output/cloc-output.json \
               --exclude-dir=.git --exclude-lang="$IGNORE_LANGS" > /dev/null 2>&1; then
               echo "Could not count code lines; no stats were published." >&2

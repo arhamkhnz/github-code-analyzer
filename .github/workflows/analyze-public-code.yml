@@ -59,7 +59,7 @@ jobs:
           done
 
           if (( ${#REPOS[@]} > 0 )); then
-            cloc "$CLONE_ROOT" --json --skip-uniqueness --report-file="$RUNNER_TEMP/public-cloc.json" --exclude-lang="$IGNORE_LANGS"
+            cloc "$CLONE_ROOT" --json --report-file="$RUNNER_TEMP/public-cloc.json" --exclude-lang="$IGNORE_LANGS"
           else
             jq -n '{SUM: {code: 0}}' > "$RUNNER_TEMP/public-cloc.json"
           fi

@@ -9,6 +9,8 @@ There are two workflows to use:
 
 Both workflow files are in `.github/workflows` so you can copy either one. The PAT job is skipped in this demo repo; it runs when copied to another repo with a `GH_PAT` secret. You can use both in the same repo, where they write to separate sections of the README.
 
+Both use cloc's default duplicate-file check: if two repos contain an identical file, that file is counted once. Adding `--skip-uniqueness` would count both copies. See [cloc's explanation](https://github.com/AlDanial/cloc#how-it-works) for more.
+
 Both workflows commit and push the updated README using the repo's built-in `GITHUB_TOKEN`. They already request `contents: write`. If a push is denied, go to **Settings → Actions → General → Workflow permissions** in the repo where you want the results and select **Read and write permissions** if available. Organization settings or branch rules can also block the push.
 
 ## Public repos by username
@@ -32,7 +34,7 @@ Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz
 3. If you leave the username blank, it uses the `PUBLIC_STATS_USERNAME` repo variable, or your repo owner if that is not set. You can set the variable in **Settings → Secrets and variables → Actions → Variables**.
 
 It runs after every branch push and every Sunday at 00:17 UTC. It saves the result in the README and `output/public-summary.json`.
-The numbers above are from this repo's latest public run. Future runs also count identical files in different repos. These are lines in the repos' default branches, not a measure of who wrote them.
+The numbers above are from this repo's latest public run. These are lines in the repos' default branches, not a measure of who wrote them.
 
 ## Repos with a fine-grained PAT
 
