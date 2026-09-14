@@ -31,7 +31,7 @@ Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz
 2. Go to **Actions → Analyze Public Repositories by Username → Run workflow** and enter a username.
 3. If you leave the username blank, it uses the `PUBLIC_STATS_USERNAME` repo variable, or your repo owner if that is not set. You can set the variable in **Settings → Secrets and variables → Actions → Variables**.
 
-It also runs every Sunday at 00:17 UTC. It saves the result in the README and `output/public-summary.json`.
+It runs after every branch push and every Sunday at 00:17 UTC. It saves the result in the README and `output/public-summary.json`.
 The numbers above are from this repo's latest public run. Future runs also count identical files in different repos. These are lines in the repos' default branches, not a measure of who wrote them.
 
 ## Repos with a fine-grained PAT

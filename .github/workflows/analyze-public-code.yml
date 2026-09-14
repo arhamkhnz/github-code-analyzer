@@ -1,6 +1,9 @@
 name: Analyze Public Repositories by Username
 
 on:
+  push:
+    branches:
+      - "**"
   schedule:
     - cron: "17 0 * * 0"
   workflow_dispatch:
@@ -124,4 +127,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore: update public repository code stats"
-          git push origin HEAD
+          git push origin "HEAD:$GITHUB_REF"
