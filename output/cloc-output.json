@@ -1,149 +1,56 @@
-{"header" : {
-  "cloc_url"           : "github.com/AlDanial/cloc",
-  "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 9.32580614089966,
-  "n_files"            : 11461,
-  "n_lines"            : 1218528,
-  "files_per_second"   : 1228.95541970749,
-  "lines_per_second"   : 130661.948317365,
-  "report_file"        : "output/cloc-output.json"},
-"JavaScript" :{
-  "nFiles": 4027,
-  "blank": 79495,
-  "comment": 110171,
-  "code": 451719},
-"TypeScript" :{
-  "nFiles": 6356,
-  "blank": 48797,
-  "comment": 17926,
-  "code": 448192},
-"JSX" :{
-  "nFiles": 173,
-  "blank": 1937,
-  "comment": 75,
-  "code": 20584},
-"Vuejs Component" :{
-  "nFiles": 308,
-  "blank": 1110,
-  "comment": 86,
-  "code": 7937},
-"Svelte" :{
-  "nFiles": 252,
-  "blank": 603,
-  "comment": 15,
-  "code": 6073},
-"PHP" :{
-  "nFiles": 77,
-  "blank": 798,
-  "comment": 3607,
-  "code": 5248},
-"Python" :{
-  "nFiles": 129,
-  "blank": 1686,
-  "comment": 2344,
-  "code": 3603},
-"diff" :{
-  "nFiles": 7,
-  "blank": 23,
-  "comment": 258,
-  "code": 1103},
-"Bourne Shell" :{
-  "nFiles": 31,
-  "blank": 157,
-  "comment": 114,
-  "code": 638},
-"Windows Module Definition" :{
-  "nFiles": 5,
-  "blank": 88,
-  "comment": 0,
-  "code": 437},
-"DOS Batch" :{
-  "nFiles": 10,
-  "blank": 96,
-  "comment": 8,
-  "code": 318},
-"Gradle" :{
-  "nFiles": 12,
-  "blank": 36,
-  "comment": 7,
-  "code": 253},
-"HCL" :{
-  "nFiles": 2,
-  "blank": 188,
-  "comment": 960,
-  "code": 222},
-"make" :{
-  "nFiles": 22,
-  "blank": 90,
-  "comment": 22,
-  "code": 219},
-"SQL" :{
-  "nFiles": 7,
-  "blank": 13,
-  "comment": 21,
-  "code": 169},
-"Bourne Again Shell" :{
-  "nFiles": 3,
-  "blank": 25,
-  "comment": 21,
-  "code": 165},
-"Dockerfile" :{
-  "nFiles": 10,
-  "blank": 91,
-  "comment": 104,
-  "code": 146},
-"INI" :{
-  "nFiles": 8,
-  "blank": 20,
-  "comment": 0,
-  "code": 106},
-"CoffeeScript" :{
-  "nFiles": 7,
-  "blank": 23,
-  "comment": 11,
-  "code": 92},
-"Java" :{
-  "nFiles": 5,
-  "blank": 24,
-  "comment": 20,
-  "code": 63},
-"Swift" :{
-  "nFiles": 1,
-  "blank": 19,
-  "comment": 13,
-  "code": 52},
-"Rust" :{
-  "nFiles": 3,
-  "blank": 2,
-  "comment": 2,
-  "code": 19},
-"zsh" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 15},
-"EJS" :{
-  "nFiles": 2,
-  "blank": 0,
-  "comment": 0,
-  "code": 14},
-"Ruby" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 8},
-"Lisp" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 6},
-"ProGuard" :{
-  "nFiles": 1,
-  "blank": 3,
-  "comment": 18,
-  "code": 0},
-"SUM": {
-  "blank": 135324,
-  "comment": 135803,
-  "code": 947401,
-  "nFiles": 11461} }
+{
+  "TypeScript": {
+    "nFiles": 1084,
+    "blank": 8796,
+    "comment": 1537,
+    "code": 105448
+  },
+  "JavaScript": {
+    "nFiles": 64,
+    "blank": 6073,
+    "comment": 5846,
+    "code": 22707
+  },
+  "Vuejs Component": {
+    "nFiles": 308,
+    "blank": 1110,
+    "comment": 86,
+    "code": 7937
+  },
+  "Svelte": {
+    "nFiles": 252,
+    "blank": 603,
+    "comment": 15,
+    "code": 6073
+  },
+  "SQL": {
+    "nFiles": 3,
+    "blank": 0,
+    "comment": 8,
+    "code": 124
+  },
+  "Python": {
+    "nFiles": 6,
+    "blank": 24,
+    "comment": 4,
+    "code": 80
+  },
+  "INI": {
+    "nFiles": 1,
+    "blank": 3,
+    "comment": 0,
+    "code": 13
+  },
+  "Dockerfile": {
+    "nFiles": 1,
+    "blank": 9,
+    "comment": 10,
+    "code": 10
+  },
+  "SUM": {
+    "blank": 16618,
+    "comment": 7506,
+    "code": 142392,
+    "nFiles": 1719
+  }
+}
