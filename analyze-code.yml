@@ -41,11 +41,13 @@ jobs:
 
           # The authenticated-user endpoint can include owned, collaborator,
           # public, and private repositories. Fetch every page, then skip forks.
-          gh api --paginate --slurp 'user/repos?per_page=100' > "$RUNNER_TEMP/pat-repos.json"
+          if ! gh api --paginate --slurp 'user/repos?per_page=100' > "$RUNNER_TEMP/pat-repos.json" 2>/dev/null; then
+            echo "Could not list repositories. Check GH_PAT access." >&2
+            exit 1
+          fi
           jq -e 'type == "array" and all(.[]; type == "array")' "$RUNNER_TEMP/pat-repos.json" > /dev/null
           jq -r '.[][] | select(.fork == false) | .full_name' \
             "$RUNNER_TEMP/pat-repos.json" > "$RUNNER_TEMP/pat-source-repos.txt"
-          echo "Found $(wc -l < "$RUNNER_TEMP/pat-source-repos.txt") non-fork repositories"
 
       - name: Clone default branches
         env:
@@ -61,9 +63,11 @@ jobs:
 
           for index in "${!repos[@]}"; do
             repo="${repos[$index]}"
-            echo "Cloning $repo"
-            git clone --quiet --depth 1 --single-branch \
-              "https://github.com/$repo.git" "$clone_root/$index"
+            if ! git clone --quiet --depth 1 --single-branch \
+              "https://github.com/$repo.git" "$clone_root/$index" > /dev/null 2>&1; then
+              echo "A repository could not be cloned. Check GH_PAT access." >&2
+              exit 1
+            fi
           done
 
       - name: Count code lines
@@ -72,12 +76,17 @@ jobs:
           set -euo pipefail
           mkdir -p output
           if [[ -s "$RUNNER_TEMP/pat-source-repos.txt" ]]; then
-            cloc "$RUNNER_TEMP/pat-code-repos" --json \
+            if ! cloc "$RUNNER_TEMP/pat-code-repos" --json \
               --report-file=output/cloc-output.json \
-              --exclude-dir=.git --exclude-lang="$IGNORE_LANGS"
+              --exclude-dir=.git --exclude-lang="$IGNORE_LANGS" > /dev/null 2>&1; then
+              echo "Could not count code lines; no stats were published." >&2
+              exit 1
+            fi
           else
             jq -n '{SUM: {code: 0}}' > output/cloc-output.json
           fi
+          jq 'del(.header)' output/cloc-output.json > "$RUNNER_TEMP/pat-cloc-summary.json"
+          mv "$RUNNER_TEMP/pat-cloc-summary.json" output/cloc-output.json
 
       - name: Update PAT section in README
         shell: python

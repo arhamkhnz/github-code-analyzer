@@ -34,6 +34,7 @@ It also runs every Sunday at 00:17 UTC. It saves the result in the README and `o
 ## Repos with a PAT
 
 This workflow counts non-fork repos the token can access, including private repos. A fine-grained token can limit which private repos it sees, but public repos may still be counted. If your README is public, the totals from private code will be public too.
+The PAT workflow does not print source repo names in normal run logs or save them in the report.
 
 <!-- LANGUAGES BREAKDOWN START -->
 ```
