@@ -1,4 +1,4 @@
-name: Update Public Repository Code Stats
+name: Analyze Public Repositories by Username
 
 on:
   schedule:

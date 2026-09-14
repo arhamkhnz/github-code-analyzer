@@ -19,7 +19,7 @@ Others       --> 9,942 lines
 
 ## Public Repository Stats
 
-Run the **Update Public Repository Code Stats** workflow with a GitHub username to count that user's public, non-fork repositories. Its weekly run uses the repository owner by default; set the `PUBLIC_STATS_USERNAME` repository variable to use another username. This workflow does not need `GH_PAT` and generates `output/public-summary.json` after its first run.
+The **Analyze Public Repositories by Username** workflow counts code on the default branch of a GitHub user's public, non-fork repositories. It needs no `GH_PAT`. The result appears below and in `output/public-summary.json` after the first run.
 
 The statistics above still come from the original `GH_PAT` workflow; that workflow can include any repositories its token can access.
 
@@ -34,13 +34,25 @@ Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz
 | Others | 6,220 |
 | **Total** | **118,249** |
 <!-- PUBLIC CODE STATS END -->
+
+### Use the public workflow
+
+1. Copy [the public workflow](.github/workflows/analyze-public-code.yml) to `.github/workflows/analyze-public-code.yml` in the repository where you want the report. Add the public stats marker pair shown above exactly once in that repository's `README.md`, at the point where the result should appear.
+2. Open **Actions → Analyze Public Repositories by Username → Run workflow**. Enter a GitHub username to analyze that account. If you leave it blank, the workflow uses the `PUBLIC_STATS_USERNAME` repository variable, then falls back to the repository owner.
+3. The workflow also runs every Sunday at 00:17 UTC using the same fallback. Set `PUBLIC_STATS_USERNAME` under **Settings → Secrets and variables → Actions → Variables** if the scheduled report should analyze a different user.
+
+The workflow fetches all pages of public repositories, skips forks, and updates only its own README section and `output/public-summary.json` when the result changes. It does not change the original `GH_PAT` workflow or its statistics.
  
-## How It Works  
-This GitHub Action automatically fetches all your public repositories (excluding forks), clones the **default branch**, and analyzes lines of code using [`cloc`](https://github.com/AlDanial/cloc). It then updates the repository’s `README.md` with the latest code statistics. The workflow runs **by default every Sunday at midnight UTC (customizable)**, keeping your stats up to date.
+## Original PAT Workflow
 
-## Usage
+### How It Works
 
-### **Setting Up the GitHub Action**
+The original `analyze-code.yml` workflow fetches repositories accessible to `GH_PAT` (excluding forks), clones each **default branch**, and analyzes lines of code using [`cloc`](https://github.com/AlDanial/cloc). Its results can include private repositories if the token can access them. It then updates the repository’s `README.md` with the latest code statistics. The distributable workflow runs every Sunday at midnight UTC and can also be run manually; the workflow installed in this repository additionally runs on pushes to `main`.
+
+### Usage
+
+#### **Setting Up the GitHub Action**
+
 1. **Add the Workflow File**  
    Copy the `analyze-code.yml` file into your repository at:
    ```
@@ -97,7 +109,7 @@ Others       --> 9,942 lines
    The workflow will update the stats between these markers.  
    *Remove `(STATIC EXAMPLE)` when adding it in your README, as it's just a placeholder. It's included here only to prevent automatic updates in this README.*
 
-### Configure languages
+#### Configure languages
 
 The workflow uses cloc **language names** (not file extensions).
 
@@ -116,7 +128,8 @@ env:
   IGNORE_LANGS: "JSON,HTML,CSS,SCSS,Sass,Markdown,SVG,XML,YAML,TOML,CSV,Text,Properties"
 ```
 
-### **Configure Language Detection**
+#### **Configure Language Detection**
+
 The workflow asks cloc to exclude languages using cloc’s own filter, so totals match cloc’s `SUM`:
 
 ```bash
