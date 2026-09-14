@@ -1,9 +1,6 @@
 name: Analyze Repositories with PAT
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "0 0 * * 0"
   workflow_dispatch:
@@ -13,6 +10,8 @@ permissions:
 
 jobs:
   count-lines:
+    # Keep this workflow copyable without running PAT analysis in this demo repo.
+    if: github.repository != 'arhamkhnz/github-code-analyzer'
     runs-on: ubuntu-latest
     env:
       # Use cloc language names. Highlighted languages get their own README row.
@@ -49,6 +48,9 @@ jobs:
             exit 1
           fi
           jq -e 'type == "array" and all(.[]; type == "array")' "$RUNNER_TEMP/pat-repos.json" > /dev/null
+          if ! jq -e 'any(.[][]; .private == true and .fork == false)' "$RUNNER_TEMP/pat-repos.json" > /dev/null; then
+            echo "::warning::No private non-fork repositories were returned. Check the token's resource owner and repository access if you expected private repos."
+          fi
           jq -r '.[][] | select(.fork == false) | .full_name' \
             "$RUNNER_TEMP/pat-repos.json" > "$RUNNER_TEMP/pat-source-repos.txt"
 
@@ -79,7 +81,7 @@ jobs:
           set -euo pipefail
           mkdir -p output
           if [[ -s "$RUNNER_TEMP/pat-source-repos.txt" ]]; then
-            if ! cloc "$RUNNER_TEMP/pat-code-repos" --json \
+            if ! cloc "$RUNNER_TEMP/pat-code-repos" --json --skip-uniqueness \
               --report-file=output/cloc-output.json \
               --exclude-dir=.git --exclude-lang="$IGNORE_LANGS" > /dev/null 2>&1; then
               echo "Could not count code lines; no stats were published." >&2

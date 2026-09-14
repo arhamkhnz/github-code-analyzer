@@ -24,10 +24,10 @@ jobs:
       - name: Checkout report repository
         uses: actions/checkout@v7
 
-      - name: Install cloc
+      - name: Install cloc and jq
         run: |
           sudo apt-get update
-          sudo apt-get install -y cloc
+          sudo apt-get install -y cloc jq
 
       - name: Discover and count public repositories
         env:
@@ -56,7 +56,7 @@ jobs:
           done
 
           if (( ${#REPOS[@]} > 0 )); then
-            cloc "$CLONE_ROOT" --json --report-file="$RUNNER_TEMP/public-cloc.json" --exclude-lang="$IGNORE_LANGS"
+            cloc "$CLONE_ROOT" --json --skip-uniqueness --report-file="$RUNNER_TEMP/public-cloc.json" --exclude-lang="$IGNORE_LANGS"
           else
             jq -n '{SUM: {code: 0}}' > "$RUNNER_TEMP/public-cloc.json"
           fi
