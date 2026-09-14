@@ -39,13 +39,14 @@ This workflow counts non-fork repos the token can access, including private repo
 ```
 [ LANGUAGES BREAKDOWN ]
 
-TypeScript   --> 344,161 lines
-JavaScript   --> 123,742 lines
-JSX          --> 20,576 lines
-PHP          --> 5,248 lines
-Others       --> 9,942 lines
+JavaScript      --> 451,719 lines
+TypeScript      --> 448,192 lines
+JSX             --> 20,584 lines
+Vuejs Component --> 7,937 lines
+PHP             --> 5,248 lines
+Others          --> 13,721 lines
 
-[ TOTAL LINES OF CODE: 503,669 ]
+[ TOTAL LINES OF CODE: 947,401 ]
 ```
 <!-- LANGUAGES BREAKDOWN END -->
 
