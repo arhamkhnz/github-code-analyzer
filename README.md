@@ -5,7 +5,7 @@ Counts code lines with [cloc](https://github.com/AlDanial/cloc). It skips forks,
 There are two workflows:
 
 - **[Public by username](.github/workflows/analyze-public-code.yml):** counts someone's public repos. No PAT needed.
-- **[With a PAT](analyze-code.yml):** counts repos your token can access, including private ones.
+- **[With a fine-grained PAT](analyze-code.yml):** counts repos your token can access, including private ones.
 
 You can use both in the same repo. They write to separate sections of the README.
 
@@ -31,9 +31,9 @@ Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz
 
 It also runs every Sunday at 00:17 UTC. It saves the result in the README and `output/public-summary.json`.
 
-## Repos with a PAT
+## Repos with a fine-grained PAT
 
-This workflow counts non-fork repos the token can access, including private repos. A fine-grained token can limit which private repos it sees, but public repos may still be counted. If your README is public, the totals from private code will be public too.
+This workflow counts non-fork repos the token can access, including private repos. You can select private repos for the token, but public repos may still be counted. If your README is public, the totals from private code will be public too.
 The PAT workflow does not print source repo names in normal run logs or save them in the report.
 
 <!-- LANGUAGES BREAKDOWN START -->
@@ -54,9 +54,7 @@ Others          --> 13,721 lines
 **To set it up:**
 
 1. Copy [`analyze-code.yml`](analyze-code.yml) to `.github/workflows/analyze-code.yml` in your repo. Copy the two marker comments around the stats above into your README where you want the result. Add them only once.
-2. Create a token in **GitHub → Settings → Developer settings → Personal access tokens**:
-   - **Fine-grained (recommended):** [Generate a token](https://github.com/settings/personal-access-tokens/new), choose the account or organization, select the repos, and set **Contents: Read-only**. GitHub includes **Metadata: Read-only**. Some organizations need to approve the token.
-   - **Classic:** [Generate a token](https://github.com/settings/tokens/new) with the `repo` scope if you need one token for repos under different owners or for an outside-collaborator repo. It gives broader access.
+2. [Create a fine-grained token](https://github.com/settings/personal-access-tokens/new). Choose the account or organization that owns the repos, choose **All repositories** or **Only select repositories**, and set **Contents: Read-only**. GitHub includes **Metadata: Read-only**. Some organizations need to approve the token.
 3. In the repo where you want the results, go to **Settings → Secrets and variables → Actions → New repository secret**. Save the token as `GH_PAT`.
 4. Go to **Actions → Analyze Repositories with PAT → Run workflow**.
 
