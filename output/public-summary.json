@@ -1,35 +1,35 @@
 {
-  "username": "SaurabhJirli",
-  "repository_count": 3,
-  "total_code_lines": 6051,
+  "username": "arhamkhnz",
+  "repository_count": 28,
+  "total_code_lines": 118249,
   "languages": [
     {
-      "name": "DOS Batch",
-      "code_lines": 155
-    },
-    {
       "name": "Dockerfile",
-      "code_lines": 9
+      "code_lines": 10
     },
     {
-      "name": "Java",
-      "code_lines": 1204
-    },
-    {
-      "name": "JavaScript",
+      "name": "INI",
       "code_lines": 13
     },
     {
-      "name": "Maven",
-      "code_lines": 120
+      "name": "JavaScript",
+      "code_lines": 1762
     },
     {
       "name": "SQL",
-      "code_lines": 11
+      "code_lines": 124
+    },
+    {
+      "name": "Svelte",
+      "code_lines": 6073
     },
     {
       "name": "TypeScript",
-      "code_lines": 4539
+      "code_lines": 102330
+    },
+    {
+      "name": "Vuejs Component",
+      "code_lines": 7937
     }
   ]
 }
