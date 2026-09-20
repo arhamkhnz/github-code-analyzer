@@ -16,15 +16,15 @@ Both workflows commit and push the updated README using the repo's built-in `GIT
 ## Public repos by username
 
 <!-- PUBLIC CODE STATS START -->
-Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz): **28**
+Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz): **29**
 
 | Language | Code lines |
 | --- | ---: |
-| TypeScript | 102,330 |
+| TypeScript | 103,712 |
 | Vuejs Component | 7,937 |
 | JavaScript | 1,762 |
 | Others | 6,220 |
-| **Total** | **118,249** |
+| **Total** | **119,631** |
 <!-- PUBLIC CODE STATS END -->
 
 **To set it up:**
