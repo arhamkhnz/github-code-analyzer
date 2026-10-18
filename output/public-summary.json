@@ -1,7 +1,7 @@
 {
   "username": "arhamkhnz",
   "repository_count": 29,
-  "total_code_lines": 121109,
+  "total_code_lines": 123115,
   "languages": [
     {
       "name": "Dockerfile",
@@ -25,7 +25,7 @@
     },
     {
       "name": "TypeScript",
-      "code_lines": 105185
+      "code_lines": 107191
     },
     {
       "name": "Vuejs Component",
