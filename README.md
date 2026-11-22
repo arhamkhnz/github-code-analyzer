@@ -20,11 +20,11 @@ Public, non-fork repositories owned by [@arhamkhnz](https://github.com/arhamkhnz
 
 | Language | Code lines |
 | --- | ---: |
-| TypeScript | 130,262 |
+| TypeScript | 136,149 |
 | Vuejs Component | 7,938 |
 | JavaScript | 1,981 |
 | Others | 6,182 |
-| **Total** | **146,363** |
+| **Total** | **152,250** |
 <!-- PUBLIC CODE STATS END -->
 
 **To set it up:**
